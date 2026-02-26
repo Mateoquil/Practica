@@ -27,7 +27,8 @@ async function conectar() {
     }
 }
 
-conectar()
+conectar();
+export default sequelize;
 
 
 // nombreDeLaBase de datos -> nombre de la cuenta -> donde se va conectar -> nombre de la base de datos

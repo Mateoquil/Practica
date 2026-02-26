@@ -1,15 +1,42 @@
+import { sync, close } from "./config.js";
+
+async function sincronizar() {
+    try{
+        await sync({alter:true})
+        console.log("conexion exitosa 🥗")
+    }catch(error){
+        console.log("error en la sincronizacion:",error.message)
+    }
+    finally{
+        console.log("conexion cerrada")
+        await close()
+    }
+}
+
+sincronizar()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //import express from 'express';
-import { HostNotReachableError } from 'sequelize'; 
+
 
 //const app = express();
 
-async function api() {
-    const rsp = await fetch("https://pokeapi.co/api/v2/pokemon/ditto")
-    const rspParseada = await rsp.json()
-    return rspParseada
-}
 
-console.log(await api())
 
 //app.use(express.json());
 
