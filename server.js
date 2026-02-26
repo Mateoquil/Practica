@@ -1,15 +1,15 @@
-import { sync, close } from "./config.js";
+import sequelize from "./config.js";
 
 async function sincronizar() {
     try{
-        await sync({alter:true})
+        await sequelize.sync({alter:true})
         console.log("conexion exitosa 🥗")
     }catch(error){
         console.log("error en la sincronizacion:",error.message)
     }
     finally{
         console.log("conexion cerrada")
-        await close()
+        await sequelize.close()
     }
 }
 

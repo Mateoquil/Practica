@@ -10,6 +10,7 @@
     "dependencies": {
         "dotenv": "^17.3.1",
         "express": "^5.2.1",
+        "mysql": "^2.18.1",
         "mysql2": "^3.18.2",
         "router": "^2.2.0",
         "sequelize": "^6.37.7"

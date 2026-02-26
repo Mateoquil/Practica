@@ -5,7 +5,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-console.log( process.env.NAME_DATABASE, process.env.USER, process.env.PASSWORD, process.env.HOST, process.env.PORT)
+console.log( "process.env.NAME_DATABASE",process.env.NAME_DB)
+console.log( "process.env.USER",process.env.USER)
+console.log( " process.env.HOST", process.env.HOST)
+console.log( "process.env.PORT",process.env.PORT)
+console.log( "process.env.DATABASE",process.env.DATABASE)
+
 
 const sequelize = new Sequelize(
     process.env.NAME_DATABASE,
@@ -21,7 +26,7 @@ const sequelize = new Sequelize(
 async function conectar() {
     try {
         await sequelize.authenticate(); 
-        console.log("Conexión establecida con éxito.");
+            console.log("Conexión establecida con éxito.");
     } catch (error) {   
         console.error("No se pudo conectar a la base de datos:", error);
     }
