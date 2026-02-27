@@ -3,7 +3,7 @@ import { DataTypes } from "sequelize";
 
 console.log("en teorio deberia haber pasado y por aca")
 
-const Producto = sequelize.define({
+const Producto = sequelize.define("Producto",{
     id:{type:DataTypes.INTEGER,primaryKey:true,autoIncrement:true},
     nombre:{type:DataTypes.TEXT(30), allowNull:false},
     precio:{type:DataTypes.DECIMAL, allowNull:false},
