@@ -1,12 +1,12 @@
-import { ticketdeventa } from "./models/ticketdeventa.js";
-import { productos } from "../models/productos.js";
+import  ticketdeventa  from "../models/ticketdeventa.js";
+import  productos  from "../models/productos.js";
 
 class TicketDeVentaService{
-    async create(){
+    async create(metodoDePagoTicket, precioTotalTicket,){
         try{
             const crearTicketDeVenta = await ticketdeventa.create({
-                metodoDePago: "",
-                precioTotal: ""
+                metodoDePago: metodoDePagoTicket,
+                precioTotal: precioTotalTicket
             })
             return crearTicketDeVenta
         }catch(error){

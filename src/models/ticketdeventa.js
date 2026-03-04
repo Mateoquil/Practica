@@ -8,6 +8,7 @@ const ticketdeventa = sequelize.define("ticketdeventa", {
     metodoDePago: { type: DataTypes.ENUM('efectivo', 'credito', 'debito', 'transferencia'), allowNull: false },
     precioTotal: { type: DataTypes.DECIMAL(10, 2), allowNull: false },
     numeroDeComprobante: { type: DataTypes.STRING(100), allowNull: false, unique: true },
+    idTicketDeVentaProductos:{type:DataTypes.INTEGER}
 }, {
     tableName: "ticketdeventa",
 })

@@ -9,6 +9,8 @@ const producto = sequelize.define("producto", {
     url: { type: DataTypes.STRING(500), allowNull: false },
     activo: { type: DataTypes.BOOLEAN, defaultValue: true },
     etiquetaId: { type: DataTypes.INTEGER, allowNull: true },
+    ticketDeVentaProductos: { type: DataTypes.INTEGER, allowNull: true },
+    idTicketDeVentaProductos:{type:DataTypes.INTEGER}
 }, {
     tableName: "producto",
 })

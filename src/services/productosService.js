@@ -1,4 +1,4 @@
-import { productos } from "../models/productos.js";
+import Productos from "../models/productos.js";
 
 // listar
 // traer
@@ -12,7 +12,7 @@ class ProductoService{
             if(!productoExiste){
                 throw new Error("no se encontro el producto al intentar actualizar")
             }
-            const crearProducto = await productos.create({
+            const crearProducto = await Productos.create({
                 nombre: nombreProducto,
                 precio: precioProducto,
                 stock: stockProducto,
@@ -36,7 +36,7 @@ class ProductoService{
 
 
             // si nombre producto es null entonces lo llena con el nombre original
-            const crearProducto = await productos.update({
+            const crearProducto = await Productos.update({
                 nombre: nombreProducto ?? productoExiste.nombre,
                 precio: precioProducto ?? productoExiste.precio,
                 stock: stockProducto ?? productoExiste.stock,
@@ -53,7 +53,7 @@ class ProductoService{
 
     async findAll(){
         try{
-            const {count, rows} = await productos.findAndCountAll()
+            const {count, rows} = await Productos.findAndCountAll()
             if(count === 0){
                 throw new Error("No se encontraron productos")
             }
@@ -68,7 +68,7 @@ class ProductoService{
 
     async findOneById(idProducto){
         try{
-            const productoEncontrado = await productos.findOne({where:{id:idProducto}})
+            const productoEncontrado = await Productos.findOne({where:{id:idProducto}})
             if(!productoEncontrado){
                 throw new Error("producto no encontrado")
             }
@@ -80,7 +80,7 @@ class ProductoService{
 
     async findOneByName(nombreProducto){
         try{
-            const productoEncontrado = await productos.findOne({where:{nombre:nombreProducto}})
+            const productoEncontrado = await Productos.findOne({where:{nombre:nombreProducto}})
             if(!productoEncontrado){
                 throw new Error("producto no encontrado")
             }
@@ -96,7 +96,7 @@ class ProductoService{
             if(!productoExiste){
                 throw new Error("producto no encontrado")
             }
-            const eliminarProducto = await productos.destroy({where:{id:idProducto}})
+            const eliminarProducto = await Productos.destroy({where:{id:idProducto}})
             return {mensaje:"producto eliminado con exito"}
         }catch(error){
             console.log("error en producto service al eliminar:",error)            
