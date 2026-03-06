@@ -9,9 +9,10 @@ class EtiquetaService{
             if(!crearEtiqueta){
                 throw new Error("error al crear un producto en la db")
             }
+            
             return {
-                id:crearEtiqueta.id,
-                nombre:crearEtiqueta.tipoEtiqueta
+                id:crearEtiqueta.dataValues.id,
+                tipo:crearEtiqueta.dataValues.tipo
             }
         }catch(error){
             console.log("error en etiqueta service al crear:",error)            

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active">All Homework</button>
+            <button class="tab">Daily Practice</button>
+            <button class="tab">Public Courses</button>
+            <button class="tab">Cancel Work</button>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">filtro de producos por precio nombre etc</h1>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div class="input-group">
+                <label for="workName">Work Name</label>
+                <input type="text" id="workName" placeholder="Please enter here">
+            </div>
+
+            <div class="input-group">
+                <label for="courseName">Course Name</label>
+                <select id="courseName">
+                    <option value="">Please choose</option>
+                    <option value="design">Design Training Camp</option>
+                    <option value="interactive">Interactive Course</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" onclick="searchProducts()">Search</button>
+            <button class="btn btn-secondary">Export</button>
+        </div>
+
+        <!-- Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>nombre del producto</th>
+                        <th>etiqueta</th>
+                        <th>precio</th>
+                        <th>stock</th>
+                        <th>Operate</th>
+                    </tr>
+                </thead>
+                <tbody id="productTable">
+                    <tr>
+                        <td>Icon Design</td>
+                        <td>Design Training Camp</td>
+                        <td>2022.03.11 22:20</td>
+                        <td>0 / 80</td>
+                        <td class="actions">
+                            <button class="btn btn-small btn-notice">Notice</button>
+                            <button class="btn btn-small btn-reply" onclick="replyProduct(this)">Reply</button>
+                            <button class="btn btn-small btn-cancel" onclick="cancelProduct(this)">Cancel</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Interface Design</td>
+                        <td>Design Training Camp</td>
+                        <td>2022.02.28 22:25</td>
+                        <td>17 / 63</td>
+                        <td class="actions">
+                            <button class="btn btn-small btn-notice">Notice</button>
+                            <button class="btn btn-small btn-reply" onclick="replyProduct(this)">Reply</button>
+                            <button class="btn btn-small btn-cancel" onclick="cancelProduct(this)">Cancel</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Product Experience</td>
+                        <td>Interactive Course</td>
+                        <td>2022.02.23 22:40</td>
+                        <td>22 / 58</td>
+                        <td class="actions">
+                            <button class="btn btn-small btn-notice">Notice</button>
+                            <button class="btn btn-small btn-reply" onclick="replyProduct(this)">Reply</button>
+                            <button class="btn btn-small btn-cancel" onclick="cancelProduct(this)">Cancel</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Design Revision Exercises</td>
+                        <td>Design Training Camp</td>
+                        <td>2022.02.10 10:25</td>
+                        <td>33 / 47</td>
+                        <td class="actions">
+                            <button class="btn btn-small btn-notice">Notice</button>
+                            <button class="btn btn-small btn-reply" onclick="replyProduct(this)">Reply</button>
+                            <button class="btn btn-small btn-cancel" onclick="cancelProduct(this)">Cancel</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Color Practice</td>
+                        <td>Design Training Camp</td>
+                        <td>2022.02.07 20:38</td>
+                        <td>58 / 22</td>
+                        <td class="actions">
+                            <button class="btn btn-small btn-notice">Notice</button>
+                            <button class="btn btn-small btn-reply" onclick="replyProduct(this)">Reply</button>
+                            <button class="btn btn-small btn-cancel" onclick="cancelProduct(this)">Cancel</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Competition Analysis</td>
+                        <td>Interactive Course</td>
+                        <td>2022.01.23 22:17</td>
+                        <td>27 / 53</td>
+                        <td class="actions">
+                            <button class="btn btn-small btn-notice">Notice</button>
+                            <button class="btn btn-small btn-reply" onclick="replyProduct(this)">Reply</button>
+                            <button class="btn btn-small btn-cancel" onclick="cancelProduct(this)">Cancel</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

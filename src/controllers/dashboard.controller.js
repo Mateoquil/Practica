@@ -1,6 +1,8 @@
 import ProductoService  from '../services/productosService.js';
 class DashboardController {
     
+    // traer todas las etiquetas
+    // traer todos los etiquetas por producto
     traerTodosLosProductos = async (req, res) => {
         try {
             const service = new ProductoService();
