@@ -1,33 +1,34 @@
-import etiquetas from "./etiquetas.js"
-import producto from "./productos.js"
-import ticketdeventa from "./ticketdeventa.js"
-import ticketdeventaproductos from "./ticketdeventaproductos.js"
-import etiquetaProductos from "./etiqueta-productos.js"
+import tag from "./tag.js";
+import product from "./product.js";
+import saleTicket from "./saleTicket.js";
+import saleTicketProducts from "./saleTicketProducts.js";
+import productTag from "./productTag.js";
 
-// Un producto pertenece a una etiqueta
-// producto.belongsToMany(etiquetas, { through: etiquetaProductos, foreignKey: "productoId", as: 'etiquetas' });
-// etiquetas.belongsToMany(producto, { through: etiquetaProductos, foreignKey: "etiquetaId", as: 'productos' });
-producto.belongsToMany(etiquetas, {
-    through: etiquetaProductos,
-    foreignKey: "productoId",
-    otherKey: "etiquetaId"
-})
+// A product can have many tags, and a tag can belong to many products (many-to-many)
+product.belongsToMany(tag, {
+    through: productTag,
+    foreignKey: "productId",
+    otherKey: "tagId",
+    as: "tags"
+});
 
-etiquetas.belongsToMany(producto, {
-    through: etiquetaProductos,
-    foreignKey: "etiquetaId",
-    otherKey: "productoId"
-})
+tag.belongsToMany(product, {
+    through: productTag,
+    foreignKey: "tagId",
+    otherKey: "productId",
+    as: "products"
+});
 
-
-
-producto.belongsTo(ticketdeventaproductos, { foreignKey: "idTicketDeVentaProductos" })
-ticketdeventa.hasMany(ticketdeventaproductos, { foreignKey: "idTicketDeVentaProductos" })
+// TODO: review this relationship after fixing the saleTicketProducts bug above —
+// "product belongsTo saleTicketProducts" reads backwards; normally the junction
+// table (saleTicketProducts) should reference the product, not the other way around.
+product.belongsTo(saleTicketProducts, { foreignKey: "idSaleTicketProducts" });
+saleTicket.hasMany(saleTicketProducts, { foreignKey: "idSaleTicketProducts" });
 
 export {
-    etiquetas,
-    producto,
-    ticketdeventa,
-    ticketdeventaproductos,
-    etiquetaProductos
-}
+    tag,
+    product,
+    saleTicket,
+    saleTicketProducts,
+    productTag
+};

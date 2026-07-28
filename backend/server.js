@@ -1,157 +1,35 @@
-import sequelize from './src/configDatabase/config.js';
-import { etiquetas, producto, ticketdeventa, ticketdeventaproductos, etiquetaProductos } from './src/models/association.js';
+import sequelize from './src/database/database.js';
+import { tag, product, saleTicket, saleTicketProducts, productTag } from './src/models/association.js';
 import express from "express";
-import dashboard from "./src/routes/dashboard.routes.js";
-import Crear from "./src/routes/cargar.routes.js";
+import dashboard from "./src/routes/dashboardRoutes.js";
+import create from "./src/routes/createRoutes.js";
 import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
-
 app.use(cors());
 
-// Ruta principal
+// Main routes
 app.use("/api", dashboard);
-app.use("/api", Crear);
+app.use("/api", create);
 
-async function sincronizar() {
+async function synchronize() {
     try {
         await sequelize.sync({ alter: true });
-        console.log("✅ Sincronización exitosa - Todas las tablas han sido creadas/actualizadas");
+        console.log("✅ Sync successful - all tables have been created/updated");
     } catch (error) {
-        console.log("❌ Error en la sincronización:", error.message);
+        console.log("❌ Sync error:", error.message);
     }
 }
 
-sincronizar();
+synchronize();
 
-app.get("/health/", (req, res) => {
+app.get("/health", (req, res) => {
     res.send("it's working");
 });
 
-
-app.listen(3000, () => {
-    console.log("Server is running on port 3000");
+const PORT = process.env.SERVER_PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-
-// import sequelize from './src/configDatabase/config.js';
-// import { etiquetas, producto, ticketdeventa, ticketdeventaproductos } from './src/models/association.js';
-// import express from "express"
-// import dashboard from "./src/routes/dashboard.routes.js"
-
-
-// const app = express()
-// app.use(express.json())
-// app.use("/api",dashboard)
-//     |
-// async function sincronizar() {
-//     try {
-//         // Sincroniza todas las tablas con los modelos
-//         await sequelize.sync({ alter: true });
-//         console.log("✅ Sincronización exitosa - Todas las tablas han sido creadas/actualizadas");
-//     } catch (error) {
-//         console.log("❌ Error en la sincronización:", error.message);
-//     }
-// }
-// sincronizar();
-
-// // app.get(/health/, (req, res) => {
-// // res.send("it's working");
-// // });
-
-// app.listen(3000, () => {
-// console.log("Server is running on port 3000");
-// })
-
-
-// app.express()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//import express from 'express';
-
-
-//const app = express();
-
-
-
-//app.use(express.json());
-
-//(req, res) => requiere y responde
-//app.get(/health/, (req, res) => {
-//res.send("hello");
-//});
-
-//app.listen(3000, () => {
-//console.log("Server is running on port 3000");
-//
-
-//app.express
-
-
-
-
-
-
-
-
-
-
-
-
-
