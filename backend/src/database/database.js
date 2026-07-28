@@ -18,6 +18,8 @@ const sequelize = new Sequelize(
         host: process.env.HOST,
         port: process.env.PORT,
         dialect: process.env.DIALECT || "mysql",
+        logging: false
+        //logging: process.env.NODE_ENV === 'development' ? console.log : false
     }
 );
 

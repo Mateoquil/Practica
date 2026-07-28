@@ -1,9 +1,9 @@
-/*  ============================================
-        Custom styles para POS System
-        Compatible con Bootstrap 5
-    ============================================ */
+/* ============================================
+   Custom styles for POS System
+   Compatible with Bootstrap 5
+   ============================================ */
 
-/* Variables personalizadas */
+/* color variables */
 :root {
     --primary-color: #4f46e5;
     --primary-hover: #4338ca;
@@ -13,13 +13,13 @@
     --bg-gradient-end: #f3f4f6;
 }
 
-/* Fondo degradado suave */
+/* background */
 body {
     background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
     min-height: 100vh;
 }
 
-/* Mejora visual del container principal */
+/* container */
 .container {
     background: white;
     border-radius: 16px;
@@ -28,7 +28,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Tabs con mejor hover */
+/* nav tabs */
 .nav-tabs .nav-link {
     transition: all 0.3s ease;
 }
@@ -41,7 +41,7 @@ body {
     font-weight: 600;
 }
 
-/* Mejora visual de la tabla */
+/* table rows */
 .table-hover tbody tr {
     transition: all 0.2s ease;
 }
@@ -52,21 +52,21 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Títulos más elegantes */
+/* headings */
 h1 {
     font-weight: 700;
     color: #1f2937;
     letter-spacing: -0.5px;
 }
 
-/* Inputs con mejor focus */
+/* inputs */
 .form-control:focus,
 .form-select:focus {
     border-color: var(--primary-color);
     box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.15);
 }
 
-/* Botones con efectos mejorados */
+/* buttons */
 .btn {
     transition: all 0.3s ease;
     font-weight: 500;
@@ -89,14 +89,14 @@ h1 {
     box-shadow: 0 6px 16px rgba(220, 53, 69, 0.3);
 }
 
-/* Badges más destacados */
+/* badges */
 .badge {
     font-weight: 600;
     padding: 6px 12px;
     letter-spacing: 0.3px;
 }
 
-/* Input group con mejor diseño */
+/* input group */
 .input-group {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
@@ -111,7 +111,7 @@ h1 {
     border-left: none;
 }
 
-/* Alertas con animación de entrada */
+/* alerts */
 .alert {
     animation: slideDown 0.3s ease;
 }
@@ -127,14 +127,14 @@ h1 {
     }
 }
 
-/* Tabla responsive mejorada */
+/* table wrapper */
 .table-responsive {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Header de tabla más destacado */
+/* table header */
 .table thead {
     background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
 }
@@ -146,25 +146,25 @@ h1 {
     font-size: 13px;
 }
 
-/* Filas de tabla con separación visual */
+/* table cells */
 .table tbody td {
     vertical-align: middle;
     padding: 16px;
 }
 
-/* Labels más visibles */
+/* form labels */
 .form-label {
     font-weight: 600;
     color: #374151;
     margin-bottom: 8px;
 }
 
-/* Datalist autocompletado */
+/* autocomplete */
 datalist {
     font-family: inherit;
 }
 
-/* Responsive para móviles */
+/* mobile breakpoint */
 @media (max-width: 768px) {
     .container {
         margin-top: 10px;
@@ -198,7 +198,7 @@ datalist {
     }
 }
 
-/* Animación de carga */
+/* loading spinner */
 .loading {
     display: inline-block;
     width: 20px;
@@ -213,18 +213,18 @@ datalist {
     to { transform: rotate(360deg); }
 }
 
-/* Tooltips mejorados (si los usás) */
+/* tooltip */
 .tooltip {
     font-size: 13px;
 }
 
-/* Placeholder más sutil */
+/* placeholder */
 ::placeholder {
     color: #9ca3af;
     opacity: 1;
 }
 
-/* Scrollbar personalizada (solo Chrome/Edge) */
+/* scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -244,14 +244,14 @@ datalist {
     background: #94a3b8;
 }
 
-/* Estado de focus visible para accesibilidad */
+/* accessibility focus */
 *:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
 }
 
-/* Mejora visual para el contador del carrito */
-#carritoCount {
+/* cart badge */
+#cartCount {
     font-size: 11px;
     font-weight: 700;
     padding: 3px 7px;

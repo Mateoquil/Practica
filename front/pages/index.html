@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store - POS System</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    
+    <div class="container mt-4">
+    
+        <!-- Top nav tabs -->
+        <ul class="nav nav-tabs mb-4 justify-content-between">
+            <div class="d-flex">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">Store</a>
+                </li>
+            </div>
+
+            <div class="d-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="account.html">
+                        <i class="bi bi-person"></i> Account
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="cart.html">
+                        <i class="bi bi-cart"></i> Cart
+                        <span id="cartCount" class="badge bg-danger" style="display: none;">0</span>
+                    </a>
+                </li>
+            </div>
+        </ul>
+
+        <h1 class="mb-4">Store</h1>
+        
+        <!-- Search -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <label for="productName" class="form-label">Search Product</label>
+                <div class="input-group">
+                    <input 
+                        type="text"
+                        class="form-control" 
+                        id="productName"
+                        placeholder="Search for a product (e.g. soda, yogurt, rice...)"
+                        list="suggestions"
+                    >
+                    <button class="btn btn-success" onclick="searchProducts()">
+                        <i class="bi bi-search"></i> Search
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearSearch()">
+                        <i class="bi bi-x-circle"></i> Clear
+                    </button>
+                </div>
+                <datalist id="suggestions"></datalist>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="productType" class="form-label">Filter by Category</label>
+                <select class="form-select" id="productType" onchange="searchProducts()">
+                    <option value="">All categories</option>
+                    <!-- Tags loaded dynamically from the DB -->
+                </select>
+            </div>
+        </div>
+        
+        <!-- Products table -->
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Product name</th>
+                        <th>Tag</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Products loaded dynamically -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    
+</body>
+</html>
