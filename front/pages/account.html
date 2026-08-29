@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link class="favicon-pestana" rel="icon" href="../Public/logo_pos.png" type="image/x-icon" sizes="32x32">
 </head>
 <body>
     <div class="container mt-4">
@@ -35,16 +36,13 @@
 
         <h1 class="mb-4 text-center">👤 My Account</h1>
 
-        <!-- User info -->
-        <!-- TODO: hardcoded placeholder data — replace with real logged-in user data once auth/JWT is connected -->
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
                 User Information
             </div>
             <div class="card-body">
-                <p><strong>Name:</strong> Juan Pérez</p>
-                <p><strong>Email:</strong> juanperez@example.com</p>
-                <p><strong>Address:</strong> Av. Siempre Viva 123, Buenos Aires</p>
+                <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                <p><strong>Role:</strong> <span id="userRole"></span></p>
             </div>
         </div>
 
@@ -52,5 +50,6 @@
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/account.js"></script>
 </body>
 </html>
