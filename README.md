@@ -1,17 +1,18 @@
 # 🧾 Point of Sale (POS) Inventory System
 
 Inventory and sales management system designed for small businesses.
-This project focuses on handling products, sales transactions, and receipt generation through a REST API.
+This project focuses on handling products, sales transactions, and authentication through a REST API, integrated with a companion authentication service ([pos-auth-module](https://github.com/Mateoquil/pos-auth-module)).
 
 ---
 
 ## 🚀 Features
 
 - 📦 Product inventory management (CRUD)
-- 🧾 Sales transactions
 - 🏷️ Product categories / tags
-- 📊 Sales history
-- 🔐 JWT Authentication (in progress)
+- 🔐 JWT Authentication (via pos-auth-module) with role-based access control
+- 🛒 Shopping cart with quantity management
+- 👤 User login and account page (frontend)
+- 🧾 Sales transactions (in progress)
 - 🖨️ Receipt generation (in progress)
 
 ---
@@ -21,7 +22,8 @@ This project focuses on handling products, sales transactions, and receipt gener
 - **Backend:** Node.js, Express
 - **Database:** MySQL
 - **ORM:** Sequelize
-- **Frontend:** Vanilla JavaScript (in progress)
+- **Authentication:** JWT, verified against [pos-auth-module](https://github.com/Mateoquil/pos-auth-module)
+- **Frontend:** Vanilla JavaScript, Bootstrap
 
 ---
 
@@ -29,65 +31,58 @@ This project focuses on handling products, sales transactions, and receipt gener
 
 Main entities:
 
-- **Products**
-- **Sales**
-- **Categories / Tags**
-- **SalesProducts** (junction table for many-to-many relationship)
+- **Product**
+- **Tag**
+- **ProductTag** (junction table for many-to-many relationship)
+- **SaleTicket** / **SaleTicketProducts**
 
 ---
 
 ## 📡 API Overview
 
-Example endpoints:
+| Method | Endpoint | Description | Protected |
+|--------|----------|-------------|-----------|
+| GET | `/api/products` | Get all products | No |
+| GET | `/api/product/:name` | Get a product by name | No |
+| POST | `/api/create-product` | Create a new product | Yes |
+| POST | `/api/create-tag` | Create a new tag | Yes |
 
-### Get product by name
-`GET /api/products/:name`
-
-### Create a new product
-`POST /api/products`
-
-### Create a sale
-`POST /api/sales`
-
-> Full API documentation coming soon.
+> Protected routes require a valid JWT issued by `pos-auth-module`.
 
 ---
 
 ## ⚙️ Installation
 
+This project requires [pos-auth-module](https://github.com/Mateoquil/pos-auth-module) running alongside it for authentication.
+
 ```bash
 # Clone repository
 git clone https://github.com/Mateoquil/pos-inventory-system.git
+cd pos-inventory-system/backend
 
 # Install dependencies
 npm install
 
-# Configure database
-# Update your MySQL credentials in config files
+# Configure environment variables
+# Create a .env file with your MySQL credentials and a JWT_SECRET
+# (must match the JWT_SECRET used in pos-auth-module)
 
 # Run the server
-npm start
+npm run dev
 ```
-
----
 
 ---
 
 ## 🚧 Project Status
 
-This project is under active development.
-
-- ✅ Backend REST API structure (controllers, models, routes, services)
-- ✅ Product, sales, and category CRUD operations
-- 🔄 Authentication (JWT) — in progress
-- 🔄 Frontend — basic implementation, not fully functional yet
-- 🔜 Role management (admin / cashier)
-- 🔜 Receipt generation
+- ✅ Backend REST API (controllers, models, routes, services)
+- ✅ Product and tag CRUD operations
+- ✅ JWT authentication integrated with pos-auth-module
+- ✅ Role-based route protection
+- ✅ Frontend: store catalog, cart, login, account page
+- 🔜 Sales transactions and receipts
 - 🔜 Stock control automation
-- 🔜 Reports and analytics
-- 🔜 Improved UI/UX
-
-Some parts of the codebase are still being translated from Spanish to English.
+- 🔜 Admin panel
 
 ---
 
