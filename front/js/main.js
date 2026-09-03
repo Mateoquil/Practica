@@ -228,7 +228,7 @@ const loadTagsIntoSelect = () => {
 const injectProductsIntoHtml = async () => {
     console.log("🟢 Loading products...");
 
-    const apiResponse = await queryApi("http://localhost:3000/api/products");
+    const apiResponse = await queryApi(`${POS_API_URL}/api/products`);
 
     allProducts = apiResponse.products || [];
     console.log("🟢 Products received:", allProducts.length);
